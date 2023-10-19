@@ -1,0 +1,38 @@
+{% extends "scheduler/layout.html" %}
+
+{% block login %}
+
+<div class="login-container">
+    <div class="title">Verano</div>
+    
+    
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post" class="login" autocomplete="off">
+        <h2>Register</h2><br>
+        {% csrf_token %}
+        <div class="mb-3">
+            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" type="email" name="email" placeholder="Email Address">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+
+    <p style="margin-top: 20px;">Already have an account? <a href="{% url 'login' %}">Log In here.</a></p>
+
+
+</div>
+
+
+{% endblock %}

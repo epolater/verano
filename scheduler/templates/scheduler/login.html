@@ -1,0 +1,38 @@
+{% extends "scheduler/layout.html" %}
+
+{% block login %}
+
+
+<div class="login-container" >
+    <div class="title">Verano</div>
+    
+
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post" class="login" autocomplete="off">
+        <h2>Login</h2><br>
+        {% csrf_token %}
+        <div class="mb-3">
+            <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        
+        <button class="btn btn-primary" type="submit">Login</button>
+
+        
+    </form>
+
+    <p style="margin-top: 20px;">Don't have an account? <a href="{% url 'register' %}">Register here.</a></p>
+
+    <div style="font-weight: lighter; font-size:14px;  text-align: center; margin-top: 50px;">
+        Created by Erkan Polater as final project for Harvard's CS50W Web Programming with Python and JavaScript
+    </div>
+</div>
+
+
+{% endblock %}
